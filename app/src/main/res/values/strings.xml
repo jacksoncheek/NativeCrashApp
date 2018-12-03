@@ -1,0 +1,4 @@
+<resources>
+    <string name="device_rooted">Device is rooted!</string>
+    <string name="device_not_rooted">Device is NOT rooted!</string>
+</resources>

@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.jacksoncheek.nativecrashapp"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+            debuggable true
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "native"
+
+    productFlavors {
+        working {
+            dimension "native"
+            applicationIdSuffix ".working"
+            versionNameSuffix "-working"
+            resValue "string", "app_name", "WorkingNativeCrashApp"
+        }
+
+        broken {
+            dimension "native"
+            applicationIdSuffix ".broken"
+            versionNameSuffix "-broken"
+            resValue "string", "app_name", "BrokenNativeCrashApp"
+        }
+    }
+}
+
+dependencies {
+    implementation Libs.kotlin
+    implementation Libs.supportAppCompat
+    implementation Libs.supportConstraintLayout
+
+    testImplementation TestLibs.jUnit
+
+    androidTestImplementation TestLibs.androidTestRunner
+    androidTestImplementation TestLibs.espresso
+}
+
+// Working Dependencies
+dependencies {
+     workingImplementation project(Projects.rootbeerlib)
+}
+
+// Broken Dependencies
+dependencies {
+     brokenImplementation project(Projects.brokenrootbeerlib)
+}
