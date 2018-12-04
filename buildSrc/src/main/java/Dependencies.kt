@@ -1,7 +1,7 @@
 object Projects {
     val app = ":app"
-    val rootbeerlib = ":rootbeerlib"
-    val brokenrootbeerlib = ":brokenrootbeerlib"
+    val devicepropertieslib = ":devicepropertieslib"
+    val brokendevicepropertieslib = ":brokendevicepropertieslib"
 }
 
 object Versions {

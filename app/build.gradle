@@ -3,6 +3,21 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+
+    // Load keystore
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
     compileSdkVersion Versions.compileSdk
 
     defaultConfig {
@@ -24,7 +39,8 @@ android {
 
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles 'proguard-android.pro', 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -60,10 +76,10 @@ dependencies {
 
 // Working Dependencies
 dependencies {
-     workingImplementation project(Projects.rootbeerlib)
+     workingImplementation project(Projects.devicepropertieslib)
 }
 
 // Broken Dependencies
 dependencies {
-     brokenImplementation project(Projects.brokenrootbeerlib)
+     brokenImplementation project(Projects.brokendevicepropertieslib)
 }

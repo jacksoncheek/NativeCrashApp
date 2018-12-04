@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion Versions.compileSdk
+    buildToolsVersion Versions.buildTools
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    // Check if the NDK exists and compile if it does
+    if (android.getNdkDirectory() != null && android.getNdkDirectory().exists()){
+        logger.debug("Found NDK: " + android.getNdkDirectory())
+
+        externalNativeBuild {
+            ndkBuild {
+                path 'src/main/jni/Android.mk'
+            }
+        }
+
+    } else {
+        logger.debug("NDK is required")
+    }
+}
+
+dependencies {
+    implementation Libs.kotlin
+
+    testImplementation TestLibs.jUnit
+    testImplementation TestLibs.mockito
+}
+
+repositories {
+    mavenCentral()
+}

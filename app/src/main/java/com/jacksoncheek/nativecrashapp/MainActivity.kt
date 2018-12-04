@@ -3,24 +3,20 @@ package com.jacksoncheek.nativecrashapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.scottyab.rootbeer.RootBeer
+import com.jacksoncheek.devicepropertieslib.DevicePropertiesNative
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var isRootedTextView: TextView
+    private lateinit var devicePropertiesTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        isRootedTextView = findViewById(R.id.root_check)
+        devicePropertiesTextView = this.findViewById(R.id.device_properties)
 
-        val rootbeer = RootBeer(this)
+        val deviceProperties = DevicePropertiesNative()
 
-        if (rootbeer.checkForRootNative()) {
-            isRootedTextView.text = this.getText(R.string.device_rooted)
-        } else {
-            isRootedTextView.text = this.getText(R.string.device_not_rooted)
-        }
+        devicePropertiesTextView.text = deviceProperties.getDevicePropertiesNative()
     }
 }
