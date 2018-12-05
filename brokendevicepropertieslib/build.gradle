@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation Libs.kotlin
+    implementation Libs.androidDeviceNames
 
     testImplementation TestLibs.jUnit
     testImplementation TestLibs.mockito

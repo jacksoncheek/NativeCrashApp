@@ -2,6 +2,7 @@ package com.jacksoncheek.devicepropertieslib
 
 import android.os.Build
 import android.util.Log
+import com.jaredrummler.android.device.DeviceName
 
 /**
  * A simple class to retrieve device properties.
@@ -37,20 +38,7 @@ class DevicePropertiesNative {
      * @return device properties
      */
     fun getDeviceProperties(): String {
-
-        val deviceProperties = StringBuilder()
-
-        deviceProperties.append("Device: ${Build.DEVICE}")
-        deviceProperties.append("\nManufacturer: ${Build.MANUFACTURER}")
-        deviceProperties.append("\nModel: ${Build.MODEL}")
-        deviceProperties.append("\nVersion.Release: ${Build.VERSION.RELEASE}")
-        deviceProperties.append("\nVersion.Incremental: ${Build.VERSION.INCREMENTAL}")
-        deviceProperties.append("\nVersion.SDK: ${Build.VERSION.SDK_INT}")
-        deviceProperties.append("\nFingerprint: ${Build.FINGERPRINT}")
-        deviceProperties.append("\nBoard: ${Build.BOARD}")
-        deviceProperties.append("\nBrand: ${Build.BRAND}")
-
-        return deviceProperties.toString()
+        return DeviceName.getDeviceName()
     }
 
     /**

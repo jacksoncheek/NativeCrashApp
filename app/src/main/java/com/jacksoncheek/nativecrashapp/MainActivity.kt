@@ -7,16 +7,16 @@ import com.jacksoncheek.devicepropertieslib.DevicePropertiesNative
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var devicePropertiesTextView: TextView
+    private lateinit var deviceNameTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        devicePropertiesTextView = this.findViewById(R.id.device_properties)
+        deviceNameTextView = this.findViewById(R.id.device_name)
 
         val deviceProperties = DevicePropertiesNative()
 
-        devicePropertiesTextView.text = deviceProperties.getDevicePropertiesNative()
+        deviceNameTextView.text = deviceProperties.getDevicePropertiesNative()
     }
 }

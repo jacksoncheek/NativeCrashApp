@@ -18,18 +18,18 @@ object Versions {
     // Libs
     val kotlin = "1.3.10"
     val supportLibrary = "27.1.1"
-    val constraintLayout = "1.0.2"
     val jUnit = "4.12"
     val androidGradlePlugin = "3.2.1"
     val espresso = "3.0.2"
     val androidTestingSupportLib = "1.0.2"
     val mockito = "2.13.0"
+    val androidDeviceNames = "1.1.8"
 }
 
 object Libs {
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     val supportAppCompat = "com.android.support:appcompat-v7:${Versions.supportLibrary}"
-    val supportConstraintLayout = "com.android.support.constraint:constraint-layout:${Versions.constraintLayout}"
+    val androidDeviceNames = "com.jaredrummler:android-device-names:${Versions.androidDeviceNames}"
 }
 
 object TestLibs {
