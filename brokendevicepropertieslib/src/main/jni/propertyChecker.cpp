@@ -52,11 +52,19 @@ void Java_com_jacksoncheek_devicepropertieslib_DevicePropertiesNative_setLogDebu
     }
 }
 
+/****************************************************************************
+ * Description: Accidentally force a stack overflow error by continually
+ * allocating a large amount of local memory (without freeing it) in a
+ * non-terminating recursive function.
+ *
+ * Parameters:
+ *     int  - Seed integer to start recursive counting at
+ ****************************************************************************/
 void accidentallyForceStackOverflow(int seed)
 {
     char blockdata[10000];
     printf("Overflow: %d\n", seed);
-    accidentallyForceStackOverflow(seed+1); // Probably requires a real device
+    accidentallyForceStackOverflow(seed+1);
 }
 
 /****************************************************************************
