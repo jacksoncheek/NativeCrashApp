@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
 
         val deviceProperties = DevicePropertiesNative()
 
-        deviceNameTextView.text = deviceProperties.getDevicePropertiesNative()
+        deviceNameTextView.text = deviceProperties.getDeviceName()
     }
 }

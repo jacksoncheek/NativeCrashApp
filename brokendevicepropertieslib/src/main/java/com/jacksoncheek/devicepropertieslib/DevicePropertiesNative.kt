@@ -1,11 +1,10 @@
 package com.jacksoncheek.devicepropertieslib
 
-import android.os.Build
 import android.util.Log
 import com.jaredrummler.android.device.DeviceName
 
 /**
- * A simple class to retrieve device properties.
+ * A simple class to retrieve the device name.
  */
 class DevicePropertiesNative {
 
@@ -34,22 +33,22 @@ class DevicePropertiesNative {
     }
 
     /**
-     * Get the device properties. This will be called from the native library though.
-     * @return device properties
+     * Get the device name. This will be called from the native library though.
+     * @return device name
      */
-    fun getDeviceProperties(): String {
+    fun getDeviceName(): String {
         return DeviceName.getDeviceName()
     }
 
     /**
-     * Get the device properties through the native library, which calls getDeviceProperties().
-     * @return device properties
+     * Get the device name through the native library, which calls getDeviceName().
+     * @return device name
      */
-    fun getDevicePropertiesNative(): String {
+    fun getDeviceNameNative(): String {
 
         if (!nativeLibraryLoaded()) {
             Log.d(TAG, "Native library was not loaded")
-            return "Error checking device properties!"
+            return "Error checking device name!"
         }
 
         setLogDebugMessages(BuildConfig.DEBUG)

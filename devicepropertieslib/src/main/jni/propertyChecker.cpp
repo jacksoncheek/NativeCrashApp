@@ -53,21 +53,21 @@ void Java_com_jacksoncheek_devicepropertieslib_DevicePropertiesNative_setLogDebu
 }
 
 /****************************************************************************
- * Description: Gets device properties.
+ * Description: Gets device name.
  *
  * Parameters:
  *     env  - Java environment pointer
  *     jobj - javaobject
  *
- * Return: String of device properties.
+ * Return: String of device name.
  ****************************************************************************/
 jstring Java_com_jacksoncheek_devicepropertieslib_DevicePropertiesNative_checkDeviceProperties( JNIEnv* env, jobject jobj)
 {
     jclass clazz = (env)->FindClass("com/jacksoncheek/devicepropertieslib/DevicePropertiesNative");
 
-    jmethodID getDeviceProperties = (env)->GetMethodID(clazz, "getDeviceProperties", "()Ljava/lang/String;");
+    jmethodID getDeviceName = (env)->GetMethodID(clazz, "getDeviceName", "()Ljava/lang/String;");
 
-    jobject result = (env)->CallObjectMethod(jobj, getDeviceProperties);
+    jobject result = (env)->CallObjectMethod(jobj, getDeviceName);
 
     const char *properties = (env)->GetStringUTFChars((jstring) result, 0);
 
