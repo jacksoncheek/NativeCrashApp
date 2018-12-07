@@ -1,2 +1,16 @@
-/build
 nativecrashapp.jks
+*.iml
+.gradle
+/local.properties
+/keystore.properties
+/.idea/caches
+/.idea/libraries
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/vcs.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
