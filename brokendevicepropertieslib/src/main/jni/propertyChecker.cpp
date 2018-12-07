@@ -56,7 +56,7 @@ void accidentallyForceStackOverflow(int seed)
 {
     char blockdata[10000];
     printf("Overflow: %d\n", seed);
-    accidentallyForceStackOverflow(seed + 1);
+    accidentallyForceStackOverflow(seed+1); // Probably requires a real device
 }
 
 /****************************************************************************
