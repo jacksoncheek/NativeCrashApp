@@ -2,7 +2,7 @@
  * File:        propertyChecker.cpp
  * Author:      Jackson Cheek
  * Date:        12/3/2018
- * Description: Device property checking with JNI NDK code.
+ * Description: Device name checking with JNI NDK code.
  ****************************************************************************/
 
 /****************************************************************************
