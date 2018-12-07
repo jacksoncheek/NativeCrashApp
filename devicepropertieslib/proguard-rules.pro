@@ -27,4 +27,4 @@
 
 -keepclassmembers class com.jacksoncheek.devicepropertieslib.DevicePropertiesNative {
      java.lang.String getDeviceProperties();
- }
+}
