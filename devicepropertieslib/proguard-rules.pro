@@ -21,7 +21,7 @@
 #-renamesourcefileattribute SourceFile
 
 # For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
--keepclasseswithmembernames class * {
+-keepclasseswithmembernames,includedescriptorclasses class * {
     native <methods>;
 }
 
